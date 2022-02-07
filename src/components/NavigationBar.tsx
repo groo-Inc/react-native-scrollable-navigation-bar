@@ -30,10 +30,20 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
     ];
   }, [backgroundColor, height]);
 
-  const iconWrapper = useMemo(() => {
+  const iconLeftWrapper = useMemo(() => {
     return (icon: React.ReactElement, index: number) => {
       return (
-        <View style={styles.iconContainer} key={index.toString()}>
+        <View style={styles.iconLeftContainer} key={index.toString()}>
+          {icon}
+        </View>
+      );
+    };
+  }, []);
+
+  const iconRightWrapper = useMemo(() => {
+    return (icon: React.ReactElement, index: number) => {
+      return (
+        <View style={styles.iconRightContainer} key={index.toString()}>
           {icon}
         </View>
       );
@@ -43,10 +53,10 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   return (
     <View style={backgroundStyle}>
       <View style={styles.leftIconsContainer}>
-        {leftIcons.map(iconWrapper)}
+        {leftIcons.map(iconLeftWrapper)}
       </View>
       <View style={styles.rightIconsContainer}>
-        {rightIcons.map(iconWrapper)}
+        {rightIcons.map(iconRightWrapper)}
       </View>
       <Appearer style={styles.titleContainer}>
         <Text style={[styles.title, titleStyle]}>{title}</Text>
@@ -57,7 +67,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -73,8 +83,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: 'black',
   },
-  iconContainer: {
-    marginHorizontal: 10,
+  iconLeftContainer: {
+    marginRight: 20,
+  },
+  iconRightContainer: {
+    marginLeft: 20,
   },
   leftIconsContainer: {
     flexDirection: 'row',

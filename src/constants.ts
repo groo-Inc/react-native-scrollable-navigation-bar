@@ -1,8 +1,8 @@
 import { Platform, StatusBar, Dimensions } from 'react-native';
 
-if (Platform.OS === 'android') {
-  StatusBar.setTranslucent(true);
-}
+// if (Platform.OS === 'android') {
+//   StatusBar.setTranslucent(true);
+// }
 
 //https://github.com/ptelad/react-native-iphone-x-helper
 function isIphoneX() {

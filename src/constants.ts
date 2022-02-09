@@ -29,7 +29,7 @@ export const STATUS_BAR_HEIGHT =
     ? isIphoneX()
       ? 44
       : 20
-    : StatusBar.currentHeight || 0;
+    : 0 || 0;
 
 export const NAVIGATION_BAR_HEIGHT = 44;
 

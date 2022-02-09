@@ -26,7 +26,7 @@ const StatusBar: React.FC<StatusBarProps> = (props) => {
     <>
       <RNStatusBar
         {...props}
-        translucent={true}
+        // translucent={true}
         backgroundColor={'transparent'}
       />
       <View style={style} />

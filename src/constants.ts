@@ -1,4 +1,4 @@
-import { Platform, StatusBar, Dimensions } from 'react-native';
+import { Platform, Dimensions } from 'react-native';
 
 // if (Platform.OS === 'android') {
 //   StatusBar.setTranslucent(true);

@@ -8,6 +8,7 @@ import {
 import { useMeasurements } from './contexts/MeasurementsContext';
 import { useAnimatedValue } from './contexts/AnimatedValueContext';
 import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint.tsx';
+import VirtualizedList from './VirtualizedList'
 
 interface ScrollerProps extends React.ComponentProps<typeof ScrollView> {
   beforeTransitionPoint?: () => void;
@@ -52,12 +53,13 @@ const Scroller: React.FC<ScrollerProps> = (props) => {
   );
 
   return (
-    /*@ts-ignore*/
-    <Animated.ScrollView
-      scrollEventThrottle={1}
-      {...props}
-      onScroll={onScrollHandler}
-    />
+    <VirtualizedList>
+      <Animated.ScrollView
+        scrollEventThrottle={1}
+        {...props}
+        onScroll={onScrollHandler}
+      />
+    </VirtualizedList>
   );
 };
 

@@ -54,7 +54,7 @@ const Scroller: React.FC<ScrollerProps> = (props) => {
 
   return (
     <VirtualizedList>
-      <Animated.ScrollView
+      <ScrollView
         scrollEventThrottle={1}
         {...props}
         onScroll={onScrollHandler}

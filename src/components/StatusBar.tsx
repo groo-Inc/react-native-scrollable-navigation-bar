@@ -4,6 +4,7 @@ import {
   StatusBar as RNStatusBar,
   StatusBarPropsIOS,
   StatusBarPropsAndroid,
+  Platform
 } from 'react-native';
 import { STATUS_BAR_HEIGHT } from '../constants';
 
@@ -22,12 +23,20 @@ const StatusBar: React.FC<StatusBarProps> = (props) => {
     };
   }, [backgroundColor, height]);
 
+const StatusBarColor = () => {
+  if (Platform.OS === 'ios'){
+    return 'transparent'
+  } else {
+    return 'white'
+  }
+}
+
   return (
     <>
       <RNStatusBar
         {...props}
         // translucent={true}
-        backgroundColor={'transparent'}
+        backgroundColor={StatusBarColor()}
       />
       <View style={style} />
     </>
